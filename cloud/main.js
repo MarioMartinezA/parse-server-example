@@ -1,4 +1,4 @@
 
-Parse.Cloud.define('makeHost', function(req, res) {
-  res.success('Hello, World! ' + request.params.username + ' ID: ' + request.params.id);
+Parse.Cloud.define('makeHost', function(request, response) {
+  response.success('Hello, World! ' + request.params.username + ' ID: ' + request.params.id);
 });
