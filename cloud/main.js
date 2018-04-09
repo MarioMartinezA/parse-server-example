@@ -9,11 +9,10 @@ Parse.Cloud.define('makeHost', function(request, response) {
     success: function(Objects) {
       Objects.save(null, {
         useMasterKey: true,
-        success: function(user) {,
+        success: function(user) {
           user.set("type","host");
           user.save();
           response.success('Cloud code: user is now a host');
-
         },
         error: function(error) {
         	response.error(error);
