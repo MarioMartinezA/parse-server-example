@@ -7,12 +7,11 @@ Parse.Cloud.define('makeHost', function(request, response) {
 	query.first({
     useMasterKey: true,
     success: function(Objects) {
-      Objects.save(null, {
-        useMasterKey: true,
-        success: function(user) {
-          user.set("type","host");
-          user.save();
-          response.success('Cloud code: user is now a host');
+    	Objects.set("type","host");
+     	Objects.save(null, {
+	        useMasterKey: true,
+	        success: function(user) {
+	        response.success('Cloud code: user is now a host');
         },
         error: function(error) {
         	response.error(error);
